@@ -5,7 +5,7 @@ extends Node
 @onready var transition: CanvasLayer = $Transition
 
 func _ready() -> void:
-    # Register the mount point for screens
-    ScreenRouter.setup(screen_root, transition)
-    # Start at the main menu (will show a placeholder for now)
-    GameState.goto(GameState.FlowState.MAIN_MENU)
+	# Register the mount point for screens
+	ScreenRouter.setup(screen_root, transition)
+	# Start at the main menu (will show a placeholder for now)
+	GameState.goto(GameState.FlowState.MAIN_MENU)

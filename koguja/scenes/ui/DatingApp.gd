@@ -4,6 +4,7 @@ extends Control
 @onready var title_lbl: Label          = $"MarginContainer/VBoxContainer/TitleLabel"
 @onready var card_grid: GridContainer  = $"MarginContainer/VBoxContainer/CardGrid"
 @onready var back_btn: Button          = $"MarginContainer/VBoxContainer/HBoxContainer/BackButton"
+@onready var playerName: LineEdit	   = $"MarginContainer/VBoxContainer/PlayerName" # holds player written name and later their acquired names
 
 var mock_npcs: Array[Dictionary] = [
 	{
@@ -31,6 +32,9 @@ var mock_npcs: Array[Dictionary] = [
 
 func _ready() -> void:
 	randomize()  # Seed the random number generator
+	if Globals.player_name_Locked:
+		playerName.editable = false # locks the playerName
+		playerName.text = Globals.player_name # shows the players full name
 	title_lbl.text = "Swipe the Stars"
 	back_btn.pressed.connect(_on_back_pressed)
 	_populate_cards()
@@ -66,8 +70,16 @@ func _make_npc_button(npc: Dictionary) -> Button: # tere
 		_on_card_pressed(npc)
 	)
 	return b
+	
+func _Update_PlayerName(npc: Dictionary) -> void: # i beg this works
+	if !Globals.player_name_Locked: # if it is the first round, set the players name before adding to it
+		Globals.player_name = playerName.text
+	var npcName: String = (npc.get("family_name", "") as String)
+	Globals.player_name += " " + npcName # Adds the new family name to the players name
+	Globals.player_name_Locked = true # locks the player name, so it wont be able to be changed anymore, gotta get 150 words here
 
 func _on_card_pressed(npc: Dictionary) -> void:
+	_Update_PlayerName(npc) # locks and updates the playerName
 	GameState.goto(GameState.FlowState.MINIGAME, {"npc": npc})
 
 func _on_back_pressed() -> void:
