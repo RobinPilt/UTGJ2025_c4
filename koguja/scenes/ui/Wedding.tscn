@@ -4,26 +4,41 @@
 
 [node name="Wedding" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jmarl")
-npc_name_label_path = NodePath("MarginContainer/VBoxContainer/NPCNameLabel")
-npc_blurb_label_path = NodePath("MarginContainer/VBoxContainer/NPCBlurbLabel")
-marry_button_path = NodePath("MarginContainer/VBoxContainer/MarryButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="NPCNameLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 512.0
+offset_top = 100.0
+offset_right = 768.0
+offset_bottom = 356.0
+horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="NPCBlurbLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 430.0
+offset_right = 912.0
+offset_bottom = 510.0
+text = "Blurb goes here"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="NPCNameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="NPCBlurbLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarryButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="MarryButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
 text = "Marry"
+
+[node name="NPCSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_right = 1000.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+stretch_mode = 5

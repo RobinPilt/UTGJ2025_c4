@@ -20,6 +20,12 @@ config/icon="res://assets/art/icon.svg"
 ScreenRouter="*res://autoload/ScreenRouter.gd"
 GameState="*res://autoload/GameState.gd"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

@@ -7,22 +7,25 @@ extends Control
 
 var mock_npcs: Array[Dictionary] = [
 	{
-		"display_name": "Zara of Andromeda",
+		"display_name": "Foxa",
 		"family_name": "Andross",
 		"difficulty_id": "easy",
-		"blurb": "Chatty pilot who loves nebula picnics."
+		"blurb": "Chatty pilot who loves nebula picnics.",
+		"sprite_path": "res://assets/art/foxa.png"
 	},
 	{
-		"display_name": "Blorblax the Kind",
+		"display_name": "Lucy",
 		"family_name": "Blorblax",
 		"difficulty_id": "normal",
-		"blurb": "Soft-spoken gelatinous poet."
+		"blurb": "Soft-spoken gelatinous poet.",
+		"sprite_path": "res://assets/art/lucy.png"
 	},
 	{
-		"display_name": "Captain K’Varr",
+		"display_name": "Saask",
 		"family_name": "Kvarr",
 		"difficulty_id": "hard",
-		"blurb": "Star navy ace; danger magnet."
+		"blurb": "Star navy ace; danger magnet.",
+		"sprite_path": "res://assets/art/saask.png"
 	},
 ]
 
