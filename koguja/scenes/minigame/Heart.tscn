@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://jpyv6cpj46ca"]
 
 [ext_resource type="Script" uid="uid://d06a0ytjraemn" path="res://scenes/minigame/Heart.gd" id="1_4g2xs"]
-[ext_resource type="Texture2D" uid="uid://dyr2kutvmy0qa" path="res://icon.svg" id="2_oe26d"]
+[ext_resource type="Texture2D" uid="uid://dyr2kutvmy0qa" path="res://assets/art/icon.svg" id="2_oe26d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pprgd"]
 

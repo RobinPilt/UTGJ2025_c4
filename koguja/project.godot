@@ -13,7 +13,7 @@ config_version=5
 config/name="Koguja"
 run/main_scene="uid://bwt050vs6d3rv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/art/icon.svg"
 
 [autoload]
 
