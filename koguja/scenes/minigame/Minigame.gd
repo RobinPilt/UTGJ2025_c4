@@ -1,12 +1,12 @@
 # res://scripts/minigame/minigame.gd
 extends Node2D
 
-@onready var back_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/BackButton"
-@onready var win_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/DebugWinButton"
-@onready var lose_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/DebugLoseButton"
+@onready var back_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/BackButton"
+@onready var win_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugWinButton"
+@onready var lose_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugLoseButton"
 @onready var hearts_label: Label = $"HUD/UIFrame/RightPanel/HeartsLabel"
 @onready var health_label: Label = $"HUD/UIFrame/LeftPanel/HealthLabel"
-@onready var timer_bar: ProgressBar = $"HUD/MarginContainer/VBoxContainer/TimerBar"
+@onready var timer_bar: ProgressBar = $"HUD/UIFrame/RightPanel/VBoxContainer/TimerBar"
 @onready var spawner: Node = $Spawner
 
 const DIFFICULTY_HEARTS = {

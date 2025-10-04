@@ -273,7 +273,7 @@ func _run_timeline() -> void:
         )
 
         # 4) Sweeping walls with gap
-        for sweep in range(3):
+        for sweep in range(1):
             var y: float = lerp(playfield_rect.position.y + 24.0,
                 playfield_rect.position.y + playfield_rect.size.y * 0.45,
                 float(sweep) / 2.0)
