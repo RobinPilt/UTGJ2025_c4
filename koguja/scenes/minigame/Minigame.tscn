@@ -33,9 +33,6 @@ layout_mode = 2
 layout_mode = 2
 value = 100.0
 
-[node name="HeartsLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="TimerLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -54,6 +51,44 @@ text = "DebugWin"
 layout_mode = 2
 text = "DebugLose"
 
-[node name="HealthLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPanel" type="Control" parent="HUD/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthLabel" type="Label" parent="HUD/HBoxContainer/LeftPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 148.0
+offset_right = 162.0
+offset_bottom = 201.5
+scale = Vector2(2, 2)
 text = "Health: 3"
+
+[node name="PlayfieldOverlay" type="Control" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="RightPanel" type="Control" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeartsLabel" type="Label" parent="HUD/HBoxContainer/RightPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 148.0
+offset_right = -97.5
+offset_bottom = 171.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+text = "Hearts:"

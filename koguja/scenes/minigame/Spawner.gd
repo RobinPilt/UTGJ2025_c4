@@ -13,6 +13,11 @@ signal spawned_obstacle(obstacle: Node2D)
 @export var autostart: bool = false
 @export var difficulty: String = "easy"   # "easy" | "normal" | "hard"
 
+# --- New: playfield binding ---
+@export var playfield_control: NodePath     # Assign this to your PlayfieldOverlay (Control)
+var _playfield: Control = null
+var playfield_rect: Rect2 = Rect2()         # Global-space rect of the bullet area
+
 var viewport_size: Vector2 = Vector2.ZERO
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var _running: bool = false
@@ -22,11 +27,20 @@ var _running: bool = false
 func _ready() -> void:
     _rng.randomize()
 
-    # Keep viewport_size up to date for non-Control nodes
+    # Keep viewport_size up to date
     _on_viewport_resized()
     var vp: Viewport = get_viewport()
     if vp:
         vp.size_changed.connect(_on_viewport_resized)
+
+    # Bind to the playfield control if provided
+    if playfield_control != NodePath():
+        _playfield = get_node_or_null(playfield_control) as Control
+        if _playfield:
+            # Control emits 'resized' in Godot 4.x
+            _playfield.resized.connect(_update_playfield_rect)
+
+    _update_playfield_rect()
 
     # Hearts use a simple timer
     heart_timer.wait_time = heart_interval
@@ -37,6 +51,20 @@ func _ready() -> void:
 
 func _on_viewport_resized() -> void:
     viewport_size = get_viewport_rect().size
+    _update_playfield_rect()
+
+func _update_playfield_rect() -> void:
+    if _playfield:
+        # Compute the global rect from the Control
+        var p: Vector2 = _playfield.global_position
+        var s: Vector2 = _playfield.size
+        playfield_rect = Rect2(p, s)
+    else:
+        # Fallback: center 60% width, full height
+        var width_ratio: float = 0.6
+        var w: float = viewport_size.x * width_ratio
+        var x: float = (viewport_size.x - w) * 0.5
+        playfield_rect = Rect2(Vector2(x, 0.0), Vector2(w, viewport_size.y))
 
 func start(diff: String = "easy") -> void:
     if _running:
@@ -44,14 +72,13 @@ func start(diff: String = "easy") -> void:
     difficulty = diff
     _running = true
     heart_timer.start()
-    # Run bullet pattern timeline
     call_deferred("_run_timeline")
 
 func stop() -> void:
     _running = false
     if heart_timer:
         heart_timer.stop()
-    # Optionally clear children (bullets/hearts) if desired
+    # Optional cleanup:
     # for c in get_children():
     #     if c is Area2D:
     #         c.queue_free()
@@ -66,8 +93,12 @@ func _spawn_heart() -> void:
     if heart_scene == null:
         return
     var h: Node2D = heart_scene.instantiate() as Node2D
-    var x: float = _rng.randf_range(spawn_margin, viewport_size.x - spawn_margin)
-    h.position = Vector2(x, -16.0)
+    var x_min: float = playfield_rect.position.x + spawn_margin
+    var x_max: float = playfield_rect.position.x + playfield_rect.size.x - spawn_margin
+    var x: float = _rng.randf_range(x_min, x_max)
+    # Spawn just above the playfield top so they fall in
+    var y: float = playfield_rect.position.y - 16.0
+    h.position = Vector2(x, y)
     add_child(h)
     spawned_heart.emit(h)
 
@@ -78,27 +109,27 @@ func _spawn_bullet(pos: Vector2, dir: Vector2, speed: float, params: Dictionary 
     if obstacle_scene == null:
         return null
     var b: Area2D = obstacle_scene.instantiate() as Area2D
-    b.position = pos
 
     # Required props (defined in obstacle.gd)
+    b.position = pos
     b.direction = dir.normalized()
     b.speed = speed
 
-    # Optional, whitelisted parameters (avoid reflection)
-    if params.has("acceleration"):
-        b.acceleration = params["acceleration"]
-    if params.has("angular_speed"):
-        b.angular_speed = params["angular_speed"]
-    if params.has("life_time"):
-        b.life_time = params["life_time"]
-    if params.has("start_delay"):
-        b.start_delay = params["start_delay"]
-    if params.has("homing"):
-        b.homing = params["homing"]
-    if params.has("homing_turn_rate"):
-        b.homing_turn_rate = params["homing_turn_rate"]
-    if params.has("damage"):
-        b.damage = params["damage"]
+    # Optional
+    if params.has("acceleration"):     b.acceleration = params["acceleration"]
+    if params.has("angular_speed"):    b.angular_speed = params["angular_speed"]
+    if params.has("life_time"):        b.life_time = params["life_time"]
+    if params.has("start_delay"):      b.start_delay = params["start_delay"]
+    if params.has("homing"):           b.homing = params["homing"]
+    if params.has("homing_turn_rate"): b.homing_turn_rate = params["homing_turn_rate"]
+    if params.has("damage"):           b.damage = params["damage"]
+
+    # --- New: give bullets custom despawn bounds matching the playfield ---
+    if "use_custom_bounds" in b:
+        b.use_custom_bounds = true
+    if "bounds_min" in b and "bounds_max" in b:
+        b.bounds_min = playfield_rect.position
+        b.bounds_max = playfield_rect.position + playfield_rect.size
 
     add_child(b)
     spawned_obstacle.emit(b)
@@ -111,7 +142,7 @@ func _player_or_center(center_fallback: Vector2) -> Vector2:
     return center_fallback
 
 func _aim_angle(from_pos: Vector2) -> float:
-    var target: Vector2 = _player_or_center(Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
+    var target: Vector2 = _player_or_center(playfield_rect.position + playfield_rect.size * 0.5)
     return (target - from_pos).angle()
 
 func _timer(wait: float) -> Signal:
@@ -119,52 +150,31 @@ func _timer(wait: float) -> Signal:
     return get_tree().create_timer(wait_time).timeout
 
 # --------------------------
-# DIFFICULTY CURVES
+# DIFFICULTY CURVES (unchanged)
 # --------------------------
 func _cfg() -> Dictionary:
     if difficulty == "easy":
         return {
-            "speed": 160.0,
-            "ring_count": 16,
-            "spiral_rate": 8.0,
-            "spiral_step_deg": 12.0,
-            "spread_ways": 3,
-            "spread_angle_deg": 36.0,
-            "homing_turn": 0.0
+            "speed": 160.0, "ring_count": 16, "spiral_rate": 8.0, "spiral_step_deg": 12.0,
+            "spread_ways": 3, "spread_angle_deg": 36.0, "homing_turn": 0.0
         }
     elif difficulty == "normal":
         return {
-            "speed": 200.0,
-            "ring_count": 24,
-            "spiral_rate": 12.0,
-            "spiral_step_deg": 10.0,
-            "spread_ways": 5,
-            "spread_angle_deg": 50.0,
-            "homing_turn": 0.8
+            "speed": 200.0, "ring_count": 24, "spiral_rate": 12.0, "spiral_step_deg": 10.0,
+            "spread_ways": 5, "spread_angle_deg": 50.0, "homing_turn": 0.8
         }
     elif difficulty == "hard":
         return {
-            "speed": 240.0,
-            "ring_count": 32,
-            "spiral_rate": 16.0,
-            "spiral_step_deg": 8.0,
-            "spread_ways": 7,
-            "spread_angle_deg": 70.0,
-            "homing_turn": 1.4
+            "speed": 240.0, "ring_count": 32, "spiral_rate": 16.0, "spiral_step_deg": 8.0,
+            "spread_ways": 7, "spread_angle_deg": 70.0, "homing_turn": 1.4
         }
-    # Fallback to easy
     return {
-        "speed": 160.0,
-        "ring_count": 16,
-        "spiral_rate": 8.0,
-        "spiral_step_deg": 12.0,
-        "spread_ways": 3,
-        "spread_angle_deg": 36.0,
-        "homing_turn": 0.0
+        "speed": 160.0, "ring_count": 16, "spiral_rate": 8.0, "spiral_step_deg": 12.0,
+        "spread_ways": 3, "spread_angle_deg": 36.0, "homing_turn": 0.0
     }
 
 # --------------------------
-# PATTERN PRIMITIVES
+# PATTERN PRIMITIVES (now use playfield_rect)
 # --------------------------
 func _pattern_ring(center: Vector2, count: int, speed: float, start_angle: float = 0.0, spread: float = TAU, params: Dictionary = {}) -> void:
     var denom: int = count if count > 1 else 1
@@ -187,11 +197,12 @@ func _pattern_aimed_spread(origin: Vector2, ways: int, angle_deg: float, speed: 
 
 func _pattern_wall_with_gap(y: float, columns: int, gap_width: float, speed: float, dir: Vector2, params: Dictionary = {}) -> void:
     var cols: int = columns if columns > 1 else 1
-    var step: float = viewport_size.x / float(cols)
-    var gap_center: float = _rng.randf_range(gap_width * 0.5, viewport_size.x - gap_width * 0.5)
-    var x: float = 0.0
-    while x <= viewport_size.x:
-        if absf(x - gap_center) > gap_width * 0.5:
+    var step: float = playfield_rect.size.x / float(cols)
+    var gap_center: float = _rng.randf_range(gap_width * 0.5, playfield_rect.size.x - gap_width * 0.5)
+    var x: float = playfield_rect.position.x
+    var end_x: float = playfield_rect.position.x + playfield_rect.size.x
+    while x <= end_x:
+        if absf((x - playfield_rect.position.x) - gap_center) > gap_width * 0.5:
             _spawn_bullet(Vector2(x, y), dir, speed, params)
         x += step
 
@@ -205,14 +216,19 @@ func _pattern_spiral_stream(origin: Vector2, duration: float, rate: float, speed
         await _timer(wait)
 
 # --------------------------
-# TIMELINE
+# TIMELINE (origins now anchored to playfield)
 # --------------------------
 func _spawn_top_center() -> Vector2:
-    return Vector2(viewport_size.x * 0.5, spawn_margin + 8.0)
+    return Vector2(
+        playfield_rect.position.x + playfield_rect.size.x * 0.5,
+        playfield_rect.position.y + spawn_margin + 8.0
+    )
 
 func _spawn_random_top() -> Vector2:
-    var x: float = _rng.randf_range(spawn_margin, viewport_size.x - spawn_margin)
-    return Vector2(x, spawn_margin + 8.0)
+    var x_min: float = playfield_rect.position.x + spawn_margin
+    var x_max: float = playfield_rect.position.x + playfield_rect.size.x - spawn_margin
+    var x: float = _rng.randf_range(x_min, x_max)
+    return Vector2(x, playfield_rect.position.y + spawn_margin + 8.0)
 
 func _run_timeline() -> void:
     await _timer(0.2)
@@ -220,7 +236,7 @@ func _run_timeline() -> void:
         var cfg: Dictionary = _cfg()
         var base_speed: float = float(cfg["speed"])
 
-        # 1) Opening rings (slight curve on normal/hard)
+        # 1) Opening rings
         for burst in range(3):
             _pattern_ring(
                 _spawn_top_center(),
@@ -235,7 +251,7 @@ func _run_timeline() -> void:
             )
             await _timer(0.7 if difficulty == "easy" else 0.55)
 
-        # 2) Aimed spreads from random top points
+        # 2) Aimed spreads
         for salvo in range(5):
             _pattern_aimed_spread(
                 _spawn_random_top(),
@@ -256,9 +272,11 @@ func _run_timeline() -> void:
             {"life_time": 7.0, "angular_speed": 0.0}
         )
 
-        # 4) Sweeping walls with a gap
+        # 4) Sweeping walls with gap
         for sweep in range(3):
-            var y: float = lerp(spawn_margin + 24.0, viewport_size.y * 0.45, float(sweep) / 2.0)
+            var y: float = lerp(playfield_rect.position.y + 24.0,
+                playfield_rect.position.y + playfield_rect.size.y * 0.45,
+                float(sweep) / 2.0)
             _pattern_wall_with_gap(
                 y,
                 22,
@@ -269,7 +287,7 @@ func _run_timeline() -> void:
             )
             await _timer(0.85 if difficulty == "easy" else 0.7)
 
-        # 5) Occasional homing on normal/hard
+        # 5) Homing accents
         if difficulty != "easy":
             for i in range(6):
                 _spawn_bullet(
@@ -284,5 +302,4 @@ func _run_timeline() -> void:
                 )
                 await _timer(0.25)
 
-        # Pulse between loops
         await _timer(0.6)

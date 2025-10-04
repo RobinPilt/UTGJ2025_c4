@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://b7mcriwnssofc" path="res://assets/art/spaceshop.png" id="2_8aeqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8aeqq"]
-size = Vector2(23.448275, 46.89655)
+size = Vector2(15.763548, 29.556652)
 
 [node name="PlayerShip" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_8aeqq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_8aeqq")
 region_rect = Rect2(112, 791, 112, 75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.9604645e-07, 0.99999917)
-scale = Vector2(1.45, 1.45)
+position = Vector2(-2.5544844e-07, 1.4285712)
+scale = Vector2(1.4499999, 1.4499999)
 shape = SubResource("RectangleShape2D_8aeqq")
