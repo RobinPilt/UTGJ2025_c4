@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu0x6vd712726"]
+
+[ext_resource type="Script" uid="uid://b60y5lpgi454w" path="res://scenes/ui/Graveyard.gd" id="1_of4t7"]
+
+[node name="Graveyard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_of4t7")
+name_label_path = NodePath("CenterContainer/VBoxContainer/Stone/NameLabel")
+hint_label_path = NodePath("CenterContainer/VBoxContainer/HintLabel")
+try_again_button_path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/TryAgainButton")
+main_menu_button_path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Stone" type="Panel" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="CenterContainer/VBoxContainer/Stone"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press enter or click to continue"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TryAgainButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Try again"
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"

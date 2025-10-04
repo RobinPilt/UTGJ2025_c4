@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://mm8b0ux5eo3u"]
+
+[ext_resource type="Script" uid="uid://dj0qeol30ktkg" path="res://scenes/minigame/PlayerShip.gd" id="1_8aeqq"]
+[ext_resource type="Texture2D" uid="uid://dyr2kutvmy0qa" path="res://icon.svg" id="2_r4d0h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv5cf"]
+radius = 16.0
+
+[node name="PlayerShip" type="CharacterBody2D"]
+script = ExtResource("1_8aeqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.23046872, 0.23046872)
+texture = ExtResource("2_r4d0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tv5cf")
