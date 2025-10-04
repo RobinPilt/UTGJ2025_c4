@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fsdy1brkymoy"]
+[gd_scene load_steps=3 format=3 uid="uid://fsdy1brkymoy"]
 
 [ext_resource type="Script" uid="uid://cjflgda0ri4rr" path="res://scenes/ui/MainMenu.gd" id="1_vjtqc"]
+[ext_resource type="Script" uid="uid://s8bdcjihmwbm" path="res://scenes/ui/Settings.gd" id="2_6jbdy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -29,6 +30,7 @@ text = "Start"
 [node name="Settings" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("2_6jbdy")
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
