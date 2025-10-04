@@ -42,4 +42,4 @@ text = "Back"
 [node name="PlayerName" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Name"
-max_length = 15
+max_length = 30

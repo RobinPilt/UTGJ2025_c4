@@ -79,7 +79,8 @@ func _Update_PlayerName(npc: Dictionary) -> void: # i beg this works
 	Globals.player_name_Locked = true # locks the player name, so it wont be able to be changed anymore, gotta get 150 words here
 
 func _on_card_pressed(npc: Dictionary) -> void:
-	_Update_PlayerName(npc) # locks and updates the playerName
+	if !Globals.player_name_Locked:
+		Globals.player_name = playerName.text
 	GameState.goto(GameState.FlowState.MINIGAME, {"npc": npc})
 
 func _on_back_pressed() -> void:

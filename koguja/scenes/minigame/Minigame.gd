@@ -98,13 +98,14 @@ func _stop_spawner() -> void:
 
 func _go_wedding() -> void:
 	_stop_spawner()
+	var npcName: String = (npc_data.get("family_name", "") as String)
+	Globals.player_name += " " + npcName
+	Globals.player_name_Locked = true
 	GameState.goto(GameState.FlowState.WEDDING, {
 		"npc": npc_data,
-		"full_name": "Robin"
+		"full_name": Globals.player_name
 	})
 
 func _go_graveyard() -> void:
 	_stop_spawner()
-	GameState.goto(GameState.FlowState.GRAVEYARD, {
-		"full_name": "Robin"
-	})
+	GameState.goto(GameState.FlowState.GRAVEYARD, {})

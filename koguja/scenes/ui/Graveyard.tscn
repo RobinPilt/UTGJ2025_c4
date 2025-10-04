@@ -31,8 +31,9 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="CenterContainer/VBoxContainer/Stone"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = 85.0
+offset_right = 152.0
+offset_bottom = 141.0
 
 [node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
