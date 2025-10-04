@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bybu18v63no83"
-path="res://.godot/imported/lucyblush.png-dc16caf5cacd3b759fab7d082ebb0ac9.ctex"
+uid="uid://dboyd03gl51hw"
+path="res://.godot/imported/victorblush.png-d5e3b891aa249edfd9c5e4393b633edd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/lucyblush.png"
-dest_files=["res://.godot/imported/lucyblush.png-dc16caf5cacd3b759fab7d082ebb0ac9.ctex"]
+source_file="res://assets/art/char/victorblush.png"
+dest_files=["res://.godot/imported/victorblush.png-d5e3b891aa249edfd9c5e4393b633edd.ctex"]
 
 [params]
 

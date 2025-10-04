@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbb22f8dbyasx"
-path="res://.godot/imported/serenablush.png-ff089b28bd5ea2db50be51ea28e5215b.ctex"
+uid="uid://b7mcriwnssofc"
+path="res://.godot/imported/spaceshop.png-cf51ff1662d5e3353c90eb76fbf05d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/serenablush.png"
-dest_files=["res://.godot/imported/serenablush.png-ff089b28bd5ea2db50be51ea28e5215b.ctex"]
+source_file="res://assets/art/char/spaceshop.png"
+dest_files=["res://.godot/imported/spaceshop.png-cf51ff1662d5e3353c90eb76fbf05d46.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xycbftve3j28"
-path="res://.godot/imported/aquariusblush.png-18d565e1b38b8297c392b49364930182.ctex"
+uid="uid://dgtor32uvn3or"
+path="res://.godot/imported/rin.png-d653da500e810a4ce49655a8973a5283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/aquariusblush.png"
-dest_files=["res://.godot/imported/aquariusblush.png-18d565e1b38b8297c392b49364930182.ctex"]
+source_file="res://assets/art/char/rin.png"
+dest_files=["res://.godot/imported/rin.png-d653da500e810a4ce49655a8973a5283.ctex"]
 
 [params]
 

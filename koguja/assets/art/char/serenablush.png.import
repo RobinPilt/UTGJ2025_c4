@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dboyd03gl51hw"
-path="res://.godot/imported/victorblush.png-8806f71540cdc014b7f25095db76d90f.ctex"
+uid="uid://cbb22f8dbyasx"
+path="res://.godot/imported/serenablush.png-04d89727cef52c7830059f8c707b3ecd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/victorblush.png"
-dest_files=["res://.godot/imported/victorblush.png-8806f71540cdc014b7f25095db76d90f.ctex"]
+source_file="res://assets/art/char/serenablush.png"
+dest_files=["res://.godot/imported/serenablush.png-04d89727cef52c7830059f8c707b3ecd.ctex"]
 
 [params]
 

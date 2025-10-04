@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7mcriwnssofc"
-path="res://.godot/imported/spaceshop.png-007ca77ecd19aae5678ec105ca299ee1.ctex"
+uid="uid://xsvkvwaa51wj"
+path="res://.godot/imported/rinblush.png-280ea161048ad6e756479dd15ef752fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/spaceshop.png"
-dest_files=["res://.godot/imported/spaceshop.png-007ca77ecd19aae5678ec105ca299ee1.ctex"]
+source_file="res://assets/art/char/rinblush.png"
+dest_files=["res://.godot/imported/rinblush.png-280ea161048ad6e756479dd15ef752fb.ctex"]
 
 [params]
 
