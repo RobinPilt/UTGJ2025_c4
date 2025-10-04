@@ -27,10 +27,10 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Star navy ace; danger magnet.",
 		"sprite_path": "res://assets/art/saask.png"
 	},
-	
 ]
 
 func _ready() -> void:
+	randomize()  # Seed the random number generator
 	title_lbl.text = "Swipe the Stars"
 	back_btn.pressed.connect(_on_back_pressed)
 	_populate_cards()
@@ -39,11 +39,17 @@ func _populate_cards() -> void:
 	for c in card_grid.get_children():
 		c.queue_free()
 
-	for npc in mock_npcs:
-		var btn: Button = _make_npc_button(npc)
-		card_grid.add_child(btn)
+	var rolledIndexes : Array[int] = [] # holds indexes of what npcs were rolled, so we dont roll the same ones
+	while rolledIndexes.size() < 3: # rolls until WE get 3 npcs	
+		var random_index = randi() % mock_npcs.size() # rolls a random index for a npc
+		if not rolledIndexes.has(random_index): # if the rolled index is a new npc, use it
+			rolledIndexes.append(random_index)
+			var npc = mock_npcs[random_index]
+			var btn: Button = _make_npc_button(npc)
+			card_grid.add_child(btn)
+	rolledIndexes.clear()
 
-func _make_npc_button(npc: Dictionary) -> Button:
+func _make_npc_button(npc: Dictionary) -> Button: # tere
 	var b := Button.new()
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
