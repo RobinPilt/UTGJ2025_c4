@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsnffbka4qlfg"
-path="res://.godot/imported/saask.png-f98d60d548c438e7e9ae622bf97b700f.ctex"
+path="res://.godot/imported/saask.png-df76f199014ad0d68d625ec468f817dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/saask.png"
-dest_files=["res://.godot/imported/saask.png-f98d60d548c438e7e9ae622bf97b700f.ctex"]
+source_file="res://assets/art/char/saask.png"
+dest_files=["res://.godot/imported/saask.png-df76f199014ad0d68d625ec468f817dc.ctex"]
 
 [params]
 

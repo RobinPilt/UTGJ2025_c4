@@ -1,7 +1,4 @@
-# res://scripts/minigame/Obstacle.gd
 extends Area2D
-
-signal hit_player
 
 @export var speed: float = 180.0
 @export var direction: Vector2 = Vector2.DOWN
@@ -17,5 +14,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("player"):
-        emit_signal("hit_player")
+        if body.get_parent().has_method("on_player_hit"):
+            body.get_parent().on_player_hit()
         queue_free()

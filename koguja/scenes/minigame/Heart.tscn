@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://b5e4hh314tfxx" path="res://assets/art/heart3.png" id="2_4g2xs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pprgd"]
+radius = 22.0
 
 [node name="Heart" type="Area2D"]
 script = ExtResource("1_4g2xs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_4g2xs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
