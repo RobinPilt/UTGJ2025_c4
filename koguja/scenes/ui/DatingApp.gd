@@ -11,21 +11,21 @@ var mock_npcs: Array[Dictionary] = [
 		"family_name": "Andross",
 		"difficulty_id": "easy",
 		"blurb": "Chatty pilot who loves nebula picnics.",
-		"sprite_path": "res://assets/art/foxa.png"
+		"sprite_path": "res://assets/art/char/foxa.png"
 	},
 	{
 		"display_name": "Lucy",
 		"family_name": "Blorblax",
 		"difficulty_id": "normal",
 		"blurb": "Soft-spoken gelatinous poet.",
-		"sprite_path": "res://assets/art/lucy.png"
+		"sprite_path": "res://assets/art/char/lucy.png"
 	},
 	{
 		"display_name": "Saask",
 		"family_name": "Kvarr",
 		"difficulty_id": "hard",
 		"blurb": "Star navy ace; danger magnet.",
-		"sprite_path": "res://assets/art/saask.png"
+		"sprite_path": "res://assets/art/char/saask.png"
 	},
 ]
 
