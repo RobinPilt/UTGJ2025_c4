@@ -1,7 +1,6 @@
 # res://scripts/minigame/minigame.gd
 extends Node2D
 
-@onready var back_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/BackButton"
 @onready var win_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugWinButton"
 @onready var lose_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugLoseButton"
 @onready var hearts_label: Label = $"HUD/UIFrame/RightPanel/HeartsLabel"
@@ -49,11 +48,6 @@ func bootstrap(payload: Dictionary) -> void:
 			spawner.start(difficulty_id)
 
 func _ready() -> void:
-	back_btn.pressed.connect(func() -> void:
-		_stop_spawner()
-		GameState.goto(GameState.FlowState.DATING_APP)
-	)
-
 	win_btn.pressed.connect(func() -> void:
 		_go_wedding()
 	)

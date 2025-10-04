@@ -28,6 +28,48 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Star navy ace; danger magnet.",
 		"sprite_path": "res://assets/art/char/saask.png"
 	},
+	{
+		"display_name": "Aquarius",
+		"family_name": "Aquarius",
+		"difficulty_id": "normal",
+		"blurb": "Rock hard, stoned, water? this thing is also chill",
+		"sprite_path": "res://assets/art/char/aquarius.png"
+	},
+	{
+		"display_name": "Dragon",
+		"family_name": "Dragon",
+		"difficulty_id": "hard",
+		"blurb": "Furry",
+		"sprite_path": "res://assets/art/char/dragon.png"
+	},
+	{
+		"display_name": "Rin",
+		"family_name": "Rin",
+		"difficulty_id": "normal",
+		"blurb": "Sadistik as fak woman",
+		"sprite_path": "res://assets/art/char/rin.png"
+	},
+	{
+		"display_name": "Serena",
+		"family_name": "Serena",
+		"difficulty_id": "easy",
+		"blurb": "Wild woman, chemistry stuff, sadistic?",
+		"sprite_path": "res://assets/art/char/serena.png"
+	},
+	{
+		"display_name": "Valentin",
+		"family_name": "Valentin",
+		"difficulty_id": "hard",
+		"blurb": "Gaslighter, manupulator, cherubim",
+		"sprite_path": "res://assets/art/char/valentin.png"
+	},
+	{
+		"display_name": "Victor",
+		"family_name": "Victor",
+		"difficulty_id": "normal",
+		"blurb": "Alcoholic, chill dude, fight? Yes. gambler",
+		"sprite_path": "res://assets/art/char/victor.png"
+	}
 ]
 
 func _ready() -> void:

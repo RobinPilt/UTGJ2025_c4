@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckkpfxlaoi1uv"]
+[gd_scene load_steps=3 format=3 uid="uid://ckkpfxlaoi1uv"]
 
 [ext_resource type="Script" uid="uid://crigg5a3eskuv" path="res://scenes/ui/DatingApp.gd" id="1_yc0ul"]
+[ext_resource type="Texture2D" uid="uid://cog5jcyv45fqe" path="res://assets/art/paneel.jpeg" id="2_tusji"]
 
 [node name="DatingApp" type="Control"]
 layout_mode = 3
@@ -43,3 +44,10 @@ text = "Back"
 layout_mode = 2
 placeholder_text = "Name"
 max_length = 30
+
+[node name="Paneel" type="Sprite2D" parent="."]
+modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
+z_index = -1025
+position = Vector2(576, 328)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_tusji")
