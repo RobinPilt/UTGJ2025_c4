@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2c8xt5rxilnl"
-path="res://.godot/imported/aquarius.png-b99418a9a304ae33da52fffe60e543ba.ctex"
+uid="uid://dboyd03gl51hw"
+path="res://.godot/imported/victorblush.png-8806f71540cdc014b7f25095db76d90f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/aquarius.png"
-dest_files=["res://.godot/imported/aquarius.png-b99418a9a304ae33da52fffe60e543ba.ctex"]
+source_file="res://assets/art/victorblush.png"
+dest_files=["res://.godot/imported/victorblush.png-8806f71540cdc014b7f25095db76d90f.ctex"]
 
 [params]
 

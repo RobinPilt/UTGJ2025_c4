@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xkrxdjsykf2b"
-path="res://.godot/imported/valentin.png-dab06682be8f9c08447690a480633a04.ctex"
+uid="uid://dtvtkcact6u4t"
+path="res://.godot/imported/dragonblush.png-e44e1802cc50ce531791df199a2aef58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/valentin.png"
-dest_files=["res://.godot/imported/valentin.png-dab06682be8f9c08447690a480633a04.ctex"]
+source_file="res://assets/art/char/dragonblush.png"
+dest_files=["res://.godot/imported/dragonblush.png-e44e1802cc50ce531791df199a2aef58.ctex"]
 
 [params]
 

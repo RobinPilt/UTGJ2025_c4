@@ -25,18 +25,22 @@ func _ready() -> void:
     add_to_group("player")
     viewport_size = get_viewport_rect().size
 
-    # Try to bind the spawner that owns playfield_rect
     if spawner_path != NodePath():
         _spawner = get_node_or_null(spawner_path)
 
-    # Track window size changes to keep fallback rect in sync
     var vp: Viewport = get_viewport()
     if vp:
         vp.size_changed.connect(_on_viewport_resized)
 
     _update_fallback_playfield()
 
-    # Ensure we start inside the playfield slice
+    # Set start position: center bottom of playfield
+    var r: Rect2 = _get_playfield_rect()
+    global_position = Vector2(
+        r.position.x + r.size.x * 0.5,
+        r.position.y + r.size.y * 0.85  # 0.85 is near the bottom, adjust as needed
+    )
+
     _clamp_to_playfield()
 
 func _on_viewport_resized() -> void:
