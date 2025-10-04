@@ -289,7 +289,7 @@ func _run_timeline() -> void:
 
         # 5) Homing accents
         if difficulty != "easy":
-            for i in range(6):
+            for i in range(3):
                 _spawn_bullet(
                     _spawn_random_top(),
                     Vector2.DOWN,
@@ -297,7 +297,7 @@ func _run_timeline() -> void:
                     {
                         "homing": true,
                         "homing_turn_rate": float(cfg["homing_turn"]),
-                        "life_time": 5.0
+                        "life_time": 3.0
                     }
                 )
                 await _timer(0.25)
