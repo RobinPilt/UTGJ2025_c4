@@ -4,8 +4,8 @@ extends Node2D
 @onready var back_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/BackButton"
 @onready var win_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/DebugWinButton"
 @onready var lose_btn: Button = $"HUD/MarginContainer/VBoxContainer/HBoxContainer/DebugLoseButton"
-@onready var hearts_label: Label = $"HUD/HBoxContainer/RightPanel/HeartsLabel"
-@onready var health_label: Label = $"HUD/HBoxContainer/LeftPanel/HealthLabel"
+@onready var hearts_label: Label = $"HUD/UIFrame/RightPanel/HeartsLabel"
+@onready var health_label: Label = $"HUD/UIFrame/LeftPanel/HealthLabel"
 @onready var timer_bar: ProgressBar = $"HUD/MarginContainer/VBoxContainer/TimerBar"
 @onready var spawner: Node = $Spawner
 

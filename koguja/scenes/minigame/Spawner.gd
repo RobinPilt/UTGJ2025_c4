@@ -54,17 +54,17 @@ func _on_viewport_resized() -> void:
     _update_playfield_rect()
 
 func _update_playfield_rect() -> void:
-    if _playfield:
+    #if _playfield:
         # Compute the global rect from the Control
-        var p: Vector2 = _playfield.global_position
-        var s: Vector2 = _playfield.size
-        playfield_rect = Rect2(p, s)
-    else:
+        # var p: Vector2 = _playfield.global_position
+        # var s: Vector2 = _playfield.size
+        # playfield_rect = Rect2(p, s)
+    #else:
         # Fallback: center 60% width, full height
-        var width_ratio: float = 0.6
-        var w: float = viewport_size.x * width_ratio
-        var x: float = (viewport_size.x - w) * 0.5
-        playfield_rect = Rect2(Vector2(x, 0.0), Vector2(w, viewport_size.y))
+    var width_ratio: float = 0.5
+    var w: float = viewport_size.x * width_ratio
+    var x: float = (viewport_size.x - w) * 0.5
+    playfield_rect = Rect2(Vector2(x, 0.0), Vector2(w, viewport_size.y))
 
 func start(diff: String = "easy") -> void:
     if _running:
