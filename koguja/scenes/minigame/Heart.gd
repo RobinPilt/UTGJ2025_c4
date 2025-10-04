@@ -1,7 +1,4 @@
-# res://scripts/minigame/Heart.gd
 extends Area2D
-
-signal collected(value: int)
 
 @export var value: int = 1
 @export var speed: float = 120.0
@@ -19,5 +16,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("player"):
-        emit_signal("collected", value)
+        body.collect_heart(value)
         queue_free()

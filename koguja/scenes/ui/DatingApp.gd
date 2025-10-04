@@ -27,6 +27,7 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Star navy ace; danger magnet.",
 		"sprite_path": "res://assets/art/saask.png"
 	},
+	
 ]
 
 func _ready() -> void:
