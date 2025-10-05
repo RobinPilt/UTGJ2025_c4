@@ -12,6 +12,11 @@ extends Control
 	"healthBonus": 2,
 	"timeBonus": 4
 }
+@onready var difficultyMults = { # just trust me bro
+	"easy" = 1,
+	"normal" = 1.5,
+	"hard" = 2
+}
 
 var mock_npcs: Array[Dictionary] = [
 	{
@@ -140,9 +145,23 @@ func _make_npc_button(npc: Dictionary) -> Button: # tere
 	var fam:  String = (npc.get("family_name", "") as String)
 	var blurb: String = (npc.get("blurb", "") as String)
 
-	 # 🎲 Roll a random stat and store it in the button
-	var rolled_stat = Globals.StatsArray[randi() % Globals.StatsArray.size()]
-	var increase_value = stat_increases[rolled_stat]
+ # 🎯 Filter eligible stats based on difficulty
+	var eligible_stats: Array[String] = Globals.StatsArray.duplicate()
+	if diff == "easy" or diff == "normal":
+		eligible_stats.erase("heartBonus")
+
+	# 🎲 Roll a stat from the filtered list
+	var rolled_stat: String = eligible_stats[randi() % eligible_stats.size()]
+	
+	# 📈 Apply difficulty multiplier to base increase
+	var base_increase: int = stat_increases[rolled_stat]
+	var multiplier: float
+	if diff = "hard":
+		
+	var multiplier: float = difficultyMults.get(diff, 1.0)
+	var increase_value: int = int(base_increase * multiplier)
+	
+	#store metadata
 	b.set_meta("rolled_stat", rolled_stat)
 	b.set_meta("increase_value", increase_value)
 	b.set_meta("npc", npc)

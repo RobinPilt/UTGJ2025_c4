@@ -6,4 +6,4 @@ var player_name_Locked = false # controls wether the player can change their nam
 var heartBonus = 0 # increases the amount of harturs the player gets per heart
 var healthBonus =  0 # increases the player's health in minigames
 var timeBonus = 0 # increases the time limit in minigames
-var StatsArray = ["heartBonus", "healthBonus", "timeBonus"] # an array of all the stats, have to add a new stat here and to datingapp
+var StatsArray: Array[String] = ["heartBonus", "healthBonus", "timeBonus"] # an array of all the stats, have to add a new stat here and to datingapp
