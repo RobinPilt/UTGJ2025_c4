@@ -37,7 +37,7 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Calm, and mean, leader kinda type.",
 		"sprite_path": "res://assets/art/char/lucy.png",
 		"sprite_path2": "res://assets/art/char/lucyblush.png",
-		"wedding_art": "res://assets/art/3F470535-3182-45EE-A5A8-2C2AC87E3284.png",
+		"wedding_art": "res://assets/art/8B3A5B0E-B04D-4F19-96D7-0672A0D6FC1B.png",
 		"wedding_text": ["This bright day should be fine for us, right?", "This glorious day should be celebrated."],
 		"divorce_text": ["I assume I wasn't holy enough for a mere human.", "..."]
 	},

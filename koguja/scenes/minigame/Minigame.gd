@@ -37,7 +37,7 @@ func bootstrap(payload: Dictionary) -> void:
 
 	time_left = max_time
 	hearts_collected = 0
-	health = 5 + Globals.healthBonus # Starting health
+	health = 10 + Globals.healthBonus # Starting health
 	update_heart_ui()
 	update_health_ui()
 	update_timer_ui()
