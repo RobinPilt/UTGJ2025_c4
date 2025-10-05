@@ -21,7 +21,7 @@ func crossfade_to(new_stream: AudioStream, duration := 1.0):
 
 func _ChangeTrack(trackType: String) -> void:
 	var targetTrack: Object = _getTargetTrack(trackType)
-
+	print_debug("attempted track change")
 	crossfade_to(targetTrack)
 
 func _getTargetTrack(trackType: String):
