@@ -6,6 +6,13 @@ extends Control
 @onready var back_btn: Button          = $"MarginContainer/VBoxContainer/HBoxContainer/BackButton"
 @onready var playerName: LineEdit	   = $"MarginContainer/VBoxContainer/PlayerName" # holds player written name and later their acquired names
 
+# these show the max amount that these upgrades can increase the players stats
+@onready var stat_increases = {
+	"heartBonus": 1,
+	"healthBonus": 2,
+	"timeBonus": 4
+}
+
 var mock_npcs: Array[Dictionary] = [
 	{
 		"display_name": "Foxa",
@@ -107,7 +114,7 @@ func _ready() -> void:
 	title_lbl.text = "Swipe the Stars"
 	back_btn.pressed.connect(_on_back_pressed)
 	_populate_cards()
-
+	
 func _populate_cards() -> void:
 	for c in card_grid.get_children():
 		c.queue_free()
@@ -133,10 +140,17 @@ func _make_npc_button(npc: Dictionary) -> Button: # tere
 	var fam:  String = (npc.get("family_name", "") as String)
 	var blurb: String = (npc.get("blurb", "") as String)
 
-	b.text = "[%s]\n%s\n— %s\n%s" % [diff.capitalize(), name, fam, blurb]
+	 # 🎲 Roll a random stat and store it in the button
+	var rolled_stat = Globals.StatsArray[randi() % Globals.StatsArray.size()]
+	var increase_value = stat_increases[rolled_stat]
+	b.set_meta("rolled_stat", rolled_stat)
+	b.set_meta("increase_value", increase_value)
+	b.set_meta("npc", npc)
+
+	b.text = "[%s]\n%s\n— %s (+%s: %s)\n%s" % [diff.capitalize(), name, fam, rolled_stat, increase_value, blurb]
 
 	b.pressed.connect(func() -> void:
-		_on_card_pressed(npc)
+		_on_card_pressed(b)
 	)
 	return b
 	
@@ -147,9 +161,23 @@ func _Update_PlayerName(npc: Dictionary) -> void: # i beg this works
 	Globals.player_name += " " + npcName # Adds the new family name to the players name
 	Globals.player_name_Locked = true # locks the player name, so it wont be able to be changed anymore, gotta get 150 words here
 
-func _on_card_pressed(npc: Dictionary) -> void:
+func _on_card_pressed(button: Button) -> void:
+	var npc: Dictionary = button.get_meta("npc")
+	var rolled_stat: String = button.get_meta("rolled_stat")
+	var increase_value: int = button.get_meta("increase_value")
+	
 	if !Globals.player_name_Locked:
 		Globals.player_name = playerName.text
+		
+		 # Apply stat bonus
+	match rolled_stat:
+		"heartBonus":
+			Globals.heartBonus += increase_value
+		"healthBonus":
+			Globals.healthBonus += increase_value
+		"timeBonus":
+			Globals.timeBonus += increase_value
+			
 	GameState.goto(GameState.FlowState.MINIGAME, {"npc": npc})
 
 func _on_back_pressed() -> void:
