@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://qaod1a5vyre2" path="res://scenes/minigame/Minigame.gd" id="1_n02jb"]
 [ext_resource type="PackedScene" uid="uid://mm8b0ux5eo3u" path="res://scenes/minigame/PlayerShip.tscn" id="1_wqfxt"]
 [ext_resource type="PackedScene" uid="uid://bcv78na2ht52b" path="res://scenes/minigame/Spawner.tscn" id="2_n02jb"]
-[ext_resource type="Script" path="res://scenes/minigame/DarkPanel.gd" id="4_7jhkd"]
-[ext_resource type="Script" path="res://scenes/minigame/PlayfieldBorder.gd" id="4_i1pj7"]
+[ext_resource type="Script" uid="uid://cogldlga1iqr1" path="res://scenes/minigame/DarkPanel.gd" id="4_7jhkd"]
+[ext_resource type="Script" uid="uid://bokcveqey3vb7" path="res://scenes/minigame/PlayfieldBorder.gd" id="4_i1pj7"]
 [ext_resource type="Texture2D" uid="uid://letclqq8qy70" path="res://assets/art/spacebgudune.png" id="7_qi8lj"]
-[ext_resource type="Script" path="res://scenes/minigame/SpaceBackground.gd" id="8_8rw0h"]
+[ext_resource type="Script" uid="uid://mmc5f0wmxf3o" path="res://scenes/minigame/SpaceBackground.gd" id="8_8rw0h"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_7jhkd"]
 
@@ -72,17 +72,6 @@ text = "Vitality left:"
 layout_mode = 2
 size_flags_vertical = 4
 value = 100.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/UIFrame/RightPanel/VBoxContainer"]
-layout_mode = 2
-
-[node name="DebugWinButton" type="Button" parent="HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "DebugWin"
-
-[node name="DebugLoseButton" type="Button" parent="HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "DebugLose"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_7jhkd")

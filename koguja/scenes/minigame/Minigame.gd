@@ -1,8 +1,6 @@
 # res://scripts/minigame/minigame.gd
 extends Node2D
 
-@onready var win_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugWinButton"
-@onready var lose_btn: Button = $"HUD/UIFrame/RightPanel/VBoxContainer/HBoxContainer/DebugLoseButton"
 @onready var hearts_label: Label = $"HUD/UIFrame/RightPanel/HeartsLabel"
 @onready var health_label: Label = $"HUD/UIFrame/LeftPanel/HealthLabel"
 @onready var timer_bar: ProgressBar = $"HUD/UIFrame/RightPanel/VBoxContainer/TimerBar"
@@ -23,7 +21,7 @@ var required_hearts: int = 10
 var max_time: float = 30.0
 var time_left: float = 30.0
 
-var health: int = 5 + Globals.healthBonus # Starting health
+var health: int = 10 + Globals.healthBonus # Starting health
 
 func bootstrap(payload: Dictionary) -> void:
 	npc_data = payload.get("npc", {}) as Dictionary
@@ -31,9 +29,9 @@ func bootstrap(payload: Dictionary) -> void:
 	required_hearts = DIFFICULTY_HEARTS.get(difficulty_id, 10)
 
 	match difficulty_id:
-		"easy": max_time = 30.0
-		"normal": max_time = 25.0
-		"hard": max_time = 20.0
+		"easy": max_time = 35.0
+		"normal": max_time = 30.0
+		"hard": max_time = 25.0
 		
 	max_time += Globals.timeBonus # adds the timeBonus to the players max time in the minigame
 
@@ -50,15 +48,6 @@ func bootstrap(payload: Dictionary) -> void:
 			spawner.set_difficulty(difficulty_id)
 		if spawner.has_method("start"):
 			spawner.start(difficulty_id)
-
-func _ready() -> void:
-	win_btn.pressed.connect(func() -> void:
-		_go_wedding()
-	)
-
-	lose_btn.pressed.connect(func() -> void:
-		_go_graveyard()
-	)
 
 func _process(delta: float) -> void:
 	time_left -= delta
