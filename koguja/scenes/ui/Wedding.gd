@@ -24,7 +24,7 @@ func _setup_ui() -> void:
     var display_name: String = npc_data.get("display_name", "???") as String
     var family_name: String = npc_data.get("family_name", "") as String
     var blurb: String = npc_data.get("blurb", "") as String
-    var sprite_path: String = npc_data.get("sprite_path", "") as String
+    var sprite_path: String = npc_data.get("sprite_path2", "") as String
 
     npc_name_label.text = "You married: %s (%s)" % [display_name, family_name]
     npc_blurb_label.text = blurb

@@ -9,66 +9,75 @@ extends Control
 var mock_npcs: Array[Dictionary] = [
 	{
 		"display_name": "Foxa",
-		"family_name": "Andross",
+		"family_name": "Foxa",
 		"difficulty_id": "easy",
-		"blurb": "Chatty pilot who loves nebula picnics.",
-		"sprite_path": "res://assets/art/char/foxa.png"
+		"blurb": "Sassy lil bitch, he's your type of man, mating is must, he chill.",
+		"sprite_path": "res://assets/art/char/foxa.png",
+		"sprite_path2": "res://assets/art/char/foxablush.png"
 	},
 	{
 		"display_name": "Lucy",
-		"family_name": "Blorblax",
+		"family_name": "Lucy",
 		"difficulty_id": "normal",
-		"blurb": "Soft-spoken gelatinous poet.",
-		"sprite_path": "res://assets/art/char/lucy.png"
+		"blurb": "Calm, and a dick, leader kinda shit.",
+		"sprite_path": "res://assets/art/char/lucy.png",
+		"sprite_path2": "res://assets/art/char/lucyblush.png"
 	},
 	{
 		"display_name": "Saask",
-		"family_name": "Kvarr",
+		"family_name": "Saask",
 		"difficulty_id": "hard",
-		"blurb": "Star navy ace; danger magnet.",
-		"sprite_path": "res://assets/art/char/saask.png"
+		"blurb": "A bad bitch, liar, will take your money, snu snu, rip pelvis.",
+		"sprite_path": "res://assets/art/char/saask.png",
+		"sprite_path2": "res://assets/art/char/saaskblush.png"
 	},
 	{
 		"display_name": "Aquarius",
 		"family_name": "Aquarius",
 		"difficulty_id": "normal",
-		"blurb": "Rock hard, stoned, water? this thing is also chill",
-		"sprite_path": "res://assets/art/char/aquarius.png"
+		"blurb": "Rock hard, stoned, water? this thing is also chill.",
+		"sprite_path": "res://assets/art/char/aquarius.png",
+		"sprite_path2": "res://assets/art/char/aquariusblush.png"
 	},
 	{
 		"display_name": "Dragon",
 		"family_name": "Dragon",
 		"difficulty_id": "hard",
 		"blurb": "Furry",
-		"sprite_path": "res://assets/art/char/dragon.png"
+		"sprite_path": "res://assets/art/char/dragon.png",
+		"sprite_path2": "res://assets/art/char/dragonblush.png"
 	},
 	{
 		"display_name": "Rin",
 		"family_name": "Rin",
 		"difficulty_id": "normal",
 		"blurb": "Sadistik as fak woman",
-		"sprite_path": "res://assets/art/char/rin.png"
+		"sprite_path": "res://assets/art/char/rin.png",
+		"sprite_path2": "res://assets/art/char/rinblush.png"
 	},
 	{
 		"display_name": "Serena",
 		"family_name": "Serena",
 		"difficulty_id": "easy",
 		"blurb": "Wild woman, chemistry stuff, sadistic?",
-		"sprite_path": "res://assets/art/char/serena.png"
+		"sprite_path": "res://assets/art/char/serena.png",
+		"sprite_path2": "res://assets/art/char/serenablush.png"
 	},
 	{
 		"display_name": "Valentin",
 		"family_name": "Valentin",
 		"difficulty_id": "hard",
 		"blurb": "Gaslighter, manupulator, cherubim",
-		"sprite_path": "res://assets/art/char/valentin.png"
+		"sprite_path": "res://assets/art/char/valentin.png",
+		"sprite_path2": "res://assets/art/char/valetinblush.png"
 	},
 	{
 		"display_name": "Victor",
 		"family_name": "Victor",
 		"difficulty_id": "normal",
 		"blurb": "Alcoholic, chill dude, fight? Yes. gambler",
-		"sprite_path": "res://assets/art/char/victor.png"
+		"sprite_path": "res://assets/art/char/victor.png",
+		"sprite_path2": "res://assets/art/char/victorblush.png"
 	}
 ]
 
