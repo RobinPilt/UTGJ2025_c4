@@ -3,8 +3,9 @@
 [ext_resource type="AudioStream" uid="uid://crul80pm3gtvx" path="res://assets/audio/Main-theme (2).wav" id="1_uh13g"]
 [ext_resource type="Script" uid="uid://dhpxlmsg6tqqa" path="res://autoload/audio_stream_player.gd" id="2_uh13g"]
 
-[node name="MusicPlayer" type="Node2D"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="PlayerA" type="AudioStreamPlayer"]
 stream = ExtResource("1_uh13g")
+autoplay = true
 script = ExtResource("2_uh13g")
+
+[node name="PlayerB" type="AudioStreamPlayer" parent="."]

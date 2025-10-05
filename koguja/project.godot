@@ -20,6 +20,7 @@ config/icon="res://assets/art/icon.svg"
 ScreenRouter="*res://autoload/ScreenRouter.gd"
 GameState="*res://autoload/GameState.gd"
 Globals="*res://autoload/Globals.gd"
+MusicPlayer="*res://autoload/MusicPlayer.tscn"
 
 [display]
 
