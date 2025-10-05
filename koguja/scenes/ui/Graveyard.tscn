@@ -19,17 +19,8 @@ main_menu_button_path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Ma
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -119.5
-offset_top = -44.5
-offset_right = 119.5
-offset_bottom = 44.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 239.0
+offset_bottom = 89.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
