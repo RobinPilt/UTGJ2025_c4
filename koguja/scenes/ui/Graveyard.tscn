@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu0x6vd712726"]
+[gd_scene load_steps=5 format=3 uid="uid://bu0x6vd712726"]
 
 [ext_resource type="Script" uid="uid://b60y5lpgi454w" path="res://scenes/ui/Graveyard.gd" id="1_of4t7"]
+[ext_resource type="Texture2D" uid="uid://dfr145uev6f7j" path="res://assets/art/graveyard.png" id="2_fxrhg"]
+[ext_resource type="Texture2D" uid="uid://b4kd3y58oqwuc" path="res://assets/art/grave.png" id="3_d4mo3"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_of4t7"]
 
@@ -12,44 +14,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_of4t7")
-name_label_path = NodePath("CenterContainer/VBoxContainer/Stone/NameLabel")
-hint_label_path = NodePath("CenterContainer/VBoxContainer/HintLabel")
-try_again_button_path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/TryAgainButton")
+name_label_path = NodePath("TextureRect2/NameLabel")
 main_menu_button_path = NodePath("CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_fxrhg")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -440.0
+offset_top = -40.0
+offset_right = 584.0
+offset_bottom = 336.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_d4mo3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -8.0
+offset_right = 97.0
+offset_bottom = 48.00003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 26
+text = "Sample name"
+horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-offset_right = 239.0
-offset_bottom = 89.0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 263.0
+offset_bottom = 97.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Stone" type="Panel" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="CenterContainer/VBoxContainer/Stone"]
-layout_mode = 0
-offset_top = 85.0
-offset_right = 152.0
-offset_bottom = 141.0
-
-[node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Press enter or click to continue"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TryAgainButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Try again"
-
 [node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
