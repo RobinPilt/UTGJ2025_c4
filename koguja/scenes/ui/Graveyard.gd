@@ -3,12 +3,9 @@ extends Control
 
 @export var name_label_path: NodePath
 @export var hint_label_path: NodePath
-@export var try_again_button_path: NodePath
 @export var main_menu_button_path: NodePath
 
 @onready var name_label: Label        = get_node(name_label_path) as Label
-@onready var hint_label: Label        = get_node(hint_label_path) as Label
-@onready var try_again_btn: Button    = get_node(try_again_button_path) as Button
 @onready var main_menu_btn: Button    = get_node(main_menu_button_path) as Button
 @onready var sound                    = preload("res://assets/audio/fail.wav")
 
@@ -25,13 +22,6 @@ func _ready() -> void:
 		full_name = Globals.player_name  # Set from global if not set by payload
 	if name_label:
 		name_label.text = full_name
-	if hint_label:
-		hint_label.text = "Press Enter (or click) to continue"
-
-	if try_again_btn:
-		try_again_btn.pressed.connect(func() -> void:
-			GameState.goto(GameState.FlowState.DATING_APP)
-	)
 	if main_menu_btn:
 		main_menu_btn.pressed.connect(func() -> void:
 			GameState.goto(GameState.FlowState.MAIN_MENU)

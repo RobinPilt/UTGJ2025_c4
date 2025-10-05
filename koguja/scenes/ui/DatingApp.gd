@@ -95,7 +95,7 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "hard",
 		"blurb": "Gaslighter, manupulator, cherubim",
 		"sprite_path": "res://assets/art/char/valentin.png",
-		"sprite_path2": "res://assets/art/char/valetinblush.png",
+		"sprite_path2": "res://assets/art/char/valentin.png",
 		"wedding_text": ["Sample wedding text.", "Sample"],
 		"divorce_text": ["Sample divorce text.", "Sample"]
 	},

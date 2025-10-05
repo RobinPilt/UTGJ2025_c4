@@ -10,6 +10,7 @@ extends Node2D
 @onready var sound1 = preload("res://assets/audio/metal_hit1.wav")
 @onready var sound2 = preload("res://assets/audio/alarm.wav")
 
+
 const DIFFICULTY_HEARTS = {
 	"easy": 10,
 	"normal": 15,
@@ -68,6 +69,8 @@ func _process(delta: float) -> void:
 		_go_graveyard()
 
 func on_heart_collected(value: int = 1) -> void:
+	$AudioStreamPlayer.stream = preload("res://assets/audio/heart_collect.wav")
+	$AudioStreamPlayer.play()
 	hearts_collected += value + Globals.heartBonus # harturBonus just flat increases the amount of harturs you get
 	update_heart_ui()
 

@@ -47,3 +47,11 @@ offset_bottom = 649.0
 size_flags_vertical = 3
 expand_mode = 2
 stretch_mode = 5
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 577.0
+offset_right = 337.0
+offset_bottom = 615.0
+text = "Next..."
