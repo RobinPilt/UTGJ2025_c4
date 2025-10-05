@@ -26,8 +26,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Sassy lil bitch, he's your type of man, mating is must, he chill.",
 		"sprite_path": "res://assets/art/char/foxa.png",
 		"sprite_path2": "res://assets/art/char/foxablush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["", ""],
+		"divorce_text": ["", ""]
 	},
 	{
 		"display_name": "Lucy",
@@ -36,8 +36,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Calm, and a dick, leader kinda shit.",
 		"sprite_path": "res://assets/art/char/lucy.png",
 		"sprite_path2": "res://assets/art/char/lucyblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Saask",
@@ -46,8 +46,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "A bad bitch, liar, will take your money, snu snu, rip pelvis.",
 		"sprite_path": "res://assets/art/char/saask.png",
 		"sprite_path2": "res://assets/art/char/saaskblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Aquarius",
@@ -56,8 +56,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Rock hard, stoned, water? this thing is also chill.",
 		"sprite_path": "res://assets/art/char/aquarius.png",
 		"sprite_path2": "res://assets/art/char/aquariusblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Dragon",
@@ -66,8 +66,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Furry",
 		"sprite_path": "res://assets/art/char/dragon.png",
 		"sprite_path2": "res://assets/art/char/dragonblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Rin",
@@ -76,8 +76,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Sadistik as fak woman",
 		"sprite_path": "res://assets/art/char/rin.png",
 		"sprite_path2": "res://assets/art/char/rinblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Serena",
@@ -86,8 +86,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Wild woman, chemistry stuff, sadistic?",
 		"sprite_path": "res://assets/art/char/serena.png",
 		"sprite_path2": "res://assets/art/char/serenablush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Valentin",
@@ -96,8 +96,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Gaslighter, manupulator, cherubim",
 		"sprite_path": "res://assets/art/char/valentin.png",
 		"sprite_path2": "res://assets/art/char/valetinblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	},
 	{
 		"display_name": "Victor",
@@ -106,8 +106,8 @@ var mock_npcs: Array[Dictionary] = [
 		"blurb": "Alcoholic, chill dude, fight? Yes. gambler",
 		"sprite_path": "res://assets/art/char/victor.png",
 		"sprite_path2": "res://assets/art/char/victorblush.png",
-		"wedding_text": "Sample wedding text.",
-		"divorce_text": "Sample divorce text."
+		"wedding_text": ["Sample wedding text.", "Sample"],
+		"divorce_text": ["Sample divorce text.", "Sample"]
 	}
 ]
 
@@ -139,7 +139,7 @@ func _make_npc_button(npc: Dictionary) -> Button: # tere
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
-	# 👇 Explicit types to avoid Variant inference warnings
+	# Explicit types to avoid Variant inference warnings
 	var diff: String = (npc.get("difficulty_id", "normal") as String)
 	var name: String = (npc.get("display_name", "???") as String)
 	var fam:  String = (npc.get("family_name", "") as String)
