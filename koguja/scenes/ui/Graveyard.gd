@@ -39,6 +39,9 @@ func _ready() -> void:
 
 	Globals.player_name = ""
 	Globals.player_name_Locked = false  # Reset global variable after displaying
+	Globals.heartBonus = 0
+	Globals.healthBonus =  0 
+	Globals.timeBonus = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fsdy1brkymoy"]
+[gd_scene load_steps=5 format=3 uid="uid://fsdy1brkymoy"]
 
 [ext_resource type="Script" uid="uid://cjflgda0ri4rr" path="res://scenes/ui/MainMenu.gd" id="1_vjtqc"]
 [ext_resource type="AudioStream" uid="uid://2gn4g8jxd6c5" path="res://assets/audio/ui_select.wav" id="2_6jbdy"]
 [ext_resource type="Script" uid="uid://s8bdcjihmwbm" path="res://scenes/ui/Settings.gd" id="2_iwbf0"]
+[ext_resource type="Texture2D" uid="uid://dr05g3a0ag11d" path="res://assets/art/startpage.png" id="4_2ysvc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -43,3 +44,9 @@ text = "GalacticMatch"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6jbdy")
+
+[node name="Startpage" type="Sprite2D" parent="."]
+z_index = -175
+position = Vector2(622, 328)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("4_2ysvc")

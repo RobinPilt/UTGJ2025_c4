@@ -23,7 +23,7 @@ var required_hearts: int = 10
 var max_time: float = 30.0
 var time_left: float = 30.0
 
-var health: int = 3 + Globals.healthBonus # Starting health
+var health: int = 5 + Globals.healthBonus # Starting health
 
 func bootstrap(payload: Dictionary) -> void:
 	npc_data = payload.get("npc", {}) as Dictionary
@@ -39,7 +39,7 @@ func bootstrap(payload: Dictionary) -> void:
 
 	time_left = max_time
 	hearts_collected = 0
-	health = 3 + Globals.healthBonus # Starting health
+	health = 5 + Globals.healthBonus # Starting health
 	update_heart_ui()
 	update_health_ui()
 	update_timer_ui()
