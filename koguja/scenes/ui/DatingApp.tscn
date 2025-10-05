@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckkpfxlaoi1uv"]
 
 [ext_resource type="Script" uid="uid://crigg5a3eskuv" path="res://scenes/ui/DatingApp.gd" id="1_yc0ul"]
-[ext_resource type="Texture2D" uid="uid://cog5jcyv45fqe" path="res://assets/art/paneel.jpeg" id="2_tusji"]
+[ext_resource type="Texture2D" uid="uid://d3pii3qf8irqm" path="res://assets/art/56FC27A6-A930-4702-90A6-2FAD6BE870A2.png" id="2_tusji"]
 
 [node name="DatingApp" type="Control"]
 layout_mode = 3
