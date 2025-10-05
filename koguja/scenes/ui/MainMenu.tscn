@@ -25,15 +25,15 @@ texture = ExtResource("4_2ysvc")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 547.0
+offset_left = 673.0
 offset_top = 107.0
-offset_right = 858.0
+offset_right = 1021.0
 offset_bottom = 190.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 3
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
-text = "Game Title"
+text = "Wed & Shed"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
