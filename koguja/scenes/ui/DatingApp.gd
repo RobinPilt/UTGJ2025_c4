@@ -156,9 +156,10 @@ func _make_npc_button(npc: Dictionary) -> Button: # tere
 	# 📈 Apply difficulty multiplier to base increase
 	var base_increase: int = stat_increases[rolled_stat]
 	var multiplier: float
-	if diff = "hard":
-		
-	var multiplier: float = difficultyMults.get(diff, 1.0)
+	if diff == "hard":
+		multiplier = 1
+	else:
+		multiplier = difficultyMults.get(diff, 1.0)
 	var increase_value: int = int(base_increase * multiplier)
 	
 	#store metadata
