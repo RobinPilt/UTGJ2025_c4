@@ -13,7 +13,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "easy",
 		"blurb": "Sassy lil bitch, he's your type of man, mating is must, he chill.",
 		"sprite_path": "res://assets/art/char/foxa.png",
-		"sprite_path2": "res://assets/art/char/foxablush.png"
+		"sprite_path2": "res://assets/art/char/foxablush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Lucy",
@@ -21,7 +23,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "normal",
 		"blurb": "Calm, and a dick, leader kinda shit.",
 		"sprite_path": "res://assets/art/char/lucy.png",
-		"sprite_path2": "res://assets/art/char/lucyblush.png"
+		"sprite_path2": "res://assets/art/char/lucyblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Saask",
@@ -29,7 +33,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "hard",
 		"blurb": "A bad bitch, liar, will take your money, snu snu, rip pelvis.",
 		"sprite_path": "res://assets/art/char/saask.png",
-		"sprite_path2": "res://assets/art/char/saaskblush.png"
+		"sprite_path2": "res://assets/art/char/saaskblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Aquarius",
@@ -37,7 +43,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "normal",
 		"blurb": "Rock hard, stoned, water? this thing is also chill.",
 		"sprite_path": "res://assets/art/char/aquarius.png",
-		"sprite_path2": "res://assets/art/char/aquariusblush.png"
+		"sprite_path2": "res://assets/art/char/aquariusblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Dragon",
@@ -45,7 +53,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "hard",
 		"blurb": "Furry",
 		"sprite_path": "res://assets/art/char/dragon.png",
-		"sprite_path2": "res://assets/art/char/dragonblush.png"
+		"sprite_path2": "res://assets/art/char/dragonblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Rin",
@@ -53,7 +63,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "normal",
 		"blurb": "Sadistik as fak woman",
 		"sprite_path": "res://assets/art/char/rin.png",
-		"sprite_path2": "res://assets/art/char/rinblush.png"
+		"sprite_path2": "res://assets/art/char/rinblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Serena",
@@ -61,7 +73,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "easy",
 		"blurb": "Wild woman, chemistry stuff, sadistic?",
 		"sprite_path": "res://assets/art/char/serena.png",
-		"sprite_path2": "res://assets/art/char/serenablush.png"
+		"sprite_path2": "res://assets/art/char/serenablush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Valentin",
@@ -69,7 +83,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "hard",
 		"blurb": "Gaslighter, manupulator, cherubim",
 		"sprite_path": "res://assets/art/char/valentin.png",
-		"sprite_path2": "res://assets/art/char/valetinblush.png"
+		"sprite_path2": "res://assets/art/char/valetinblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	},
 	{
 		"display_name": "Victor",
@@ -77,7 +93,9 @@ var mock_npcs: Array[Dictionary] = [
 		"difficulty_id": "normal",
 		"blurb": "Alcoholic, chill dude, fight? Yes. gambler",
 		"sprite_path": "res://assets/art/char/victor.png",
-		"sprite_path2": "res://assets/art/char/victorblush.png"
+		"sprite_path2": "res://assets/art/char/victorblush.png",
+		"wedding_text": "Sample wedding text.",
+		"divorce_text": "Sample divorce text."
 	}
 ]
 
