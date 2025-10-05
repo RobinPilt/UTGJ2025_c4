@@ -10,7 +10,7 @@ extends Control
 @onready var hint_label: Label        = get_node(hint_label_path) as Label
 @onready var try_again_btn: Button    = get_node(try_again_button_path) as Button
 @onready var main_menu_btn: Button    = get_node(main_menu_button_path) as Button
-
+@onready var sound                    = preload("res://assets/audio/fail.wav")
 
 var full_name: String = ""
 
@@ -19,6 +19,8 @@ func bootstrap(payload: Dictionary) -> void:
 	full_name = String(payload.get("full_name", Globals.player_name))
 
 func _ready() -> void:
+	$AudioStreamPlayer.stream = sound
+	$AudioStreamPlayer.play()
 	if full_name == "":
 		full_name = Globals.player_name  # Set from global if not set by payload
 	if name_label:
