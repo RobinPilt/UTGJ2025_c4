@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu0x6vd712726"]
+[gd_scene load_steps=3 format=3 uid="uid://bu0x6vd712726"]
 
 [ext_resource type="Script" uid="uid://b60y5lpgi454w" path="res://scenes/ui/Graveyard.gd" id="1_of4t7"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_of4t7"]
 
 [node name="Graveyard" type="Control"]
 layout_mode = 3
@@ -58,3 +60,6 @@ text = "Try again"
 [node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_of4t7")
