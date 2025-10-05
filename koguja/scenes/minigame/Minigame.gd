@@ -23,7 +23,7 @@ var required_hearts: int = 10
 var max_time: float = 30.0
 var time_left: float = 30.0
 
-var health: int = 3  # Starting health
+var health: int = 3 + Globals.healthBonus # Starting health
 
 func bootstrap(payload: Dictionary) -> void:
 	npc_data = payload.get("npc", {}) as Dictionary
@@ -34,6 +34,8 @@ func bootstrap(payload: Dictionary) -> void:
 		"easy": max_time = 30.0
 		"normal": max_time = 25.0
 		"hard": max_time = 20.0
+		
+	max_time += Globals.timeBonus # adds the timeBonus to the players max time in the minigame
 
 	time_left = max_time
 	hearts_collected = 0
@@ -66,7 +68,7 @@ func _process(delta: float) -> void:
 		_go_graveyard()
 
 func on_heart_collected(value: int = 1) -> void:
-	hearts_collected += value
+	hearts_collected += value + Globals.heartBonus # harturBonus just flat increases the amount of harturs you get
 	update_heart_ui()
 
 	if hearts_collected >= required_hearts:
