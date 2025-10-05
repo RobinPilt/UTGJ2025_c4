@@ -22,7 +22,7 @@ func _ready() -> void:
 	# Create the RichTextLabel
 	text_label = RichTextLabel.new()
 	text_label.bbcode_enabled = false
-	text_label.text = "Find your ideal date, make it to their planet avoiding hazards and collecting enough hearts on the way. Marry them and disregard their feelings, divorcing to gain new surnames with unique powerups.\n\nMovement: W, A, S, D\n\nNavigation: Enter"
+	text_label.text = "Find your ideal date, make it to their planet avoiding hazards and collecting enough hearts on the way. Marry them and disregard their feelings, divorcing to gain new surnames with unique powerups.\n\nMovement: W, A, S, D\n\nNavigation: Enter \nPlease play this in fullscreen"
 	text_label.custom_minimum_size = Vector2(540, 200)
 	text_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	text_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
