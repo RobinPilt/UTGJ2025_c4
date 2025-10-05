@@ -40,6 +40,8 @@ func _scene_for(state_name: int) -> PackedScene:
 			return _maybe("res://scenes/ui/Results.tscn")       
 		GameState.FlowState.GRAVEYARD:                                 
 			return _maybe("res://scenes/ui/Graveyard.tscn")
+		GameState.FlowState.DIVORCE:
+			return _maybe("res://scenes/ui/Divorce.tscn")
 		_:
 			return null
 

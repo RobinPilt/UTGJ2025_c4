@@ -1,20 +1,20 @@
-# res://scripts/ui/Wedding.gd
+# res://scripts/ui/Divorce.gd
 extends Control
 
 @onready var npc_sprite: TextureRect = $NPCSprite
 @onready var npc_name_label: Label = $NPCNameLabel
 @onready var npc_blurb_label: Label = $NPCBlurbLabel
-@onready var marry_button: Button = $MarryButton
+@onready var divorce_button: Button = $DivorceButton
 
 var npc_data: Dictionary = {}
-var current_name: String = ""  # fallback name
-var _payload: Dictionary = {}  # NEW: store incoming payload so we can forward it intact
+var current_name: String = ""  # fallback name (will already include the wedding's change)
+var _payload: Dictionary = {}  # NEW: store and forward the payload intact
 
 func bootstrap(payload: Dictionary) -> void:
-    _payload = payload.duplicate(true)   # keep the full incoming payload
+    _payload = payload.duplicate(true)
     npc_data = _payload.get("npc", {}) as Dictionary
     current_name = _payload.get("full_name", current_name) as String
-    print("Wedding bootstrap received payload:", _payload)
+    print("Divorce bootstrap received payload:", _payload)
 
     _setup_ui()
 
@@ -26,7 +26,7 @@ func _setup_ui() -> void:
     var blurb: String = npc_data.get("blurb", "") as String
     var sprite_path: String = npc_data.get("sprite_path", "") as String
 
-    npc_name_label.text = "You married: %s (%s)" % [display_name, family_name]
+    npc_name_label.text = "You divorce: %s (%s)" % [display_name, family_name]
     npc_blurb_label.text = blurb
 
     print("Trying to load sprite from path:", sprite_path)
@@ -41,16 +41,16 @@ func _setup_ui() -> void:
         print("No sprite path provided.")
 
     # Avoid multiple connects if bootstrap runs again
-    if not marry_button.pressed.is_connected(_on_marry_pressed):
-        marry_button.pressed.connect(_on_marry_pressed)
+    if not divorce_button.pressed.is_connected(_on_divorce_pressed):
+        divorce_button.pressed.connect(_on_divorce_pressed)
 
-func _on_marry_pressed() -> void:
+func _on_divorce_pressed() -> void:
     var new_full_name: String = "%s-%s" % [current_name, npc_data.get("family_name", "") as String]
 
-    # Forward the SAME payload, only updating full_name
+    # Forward the SAME payload with the updated name back to the app (or next step)
     var next_payload: Dictionary = _payload.duplicate(true)
     next_payload["full_name"] = new_full_name
-    # Ensure npc stays in payload (it already should be, but we reinforce it)
+    # Keep npc if you want the app to know who you just divorced (optional)
     next_payload["npc"] = npc_data
 
-    GameState.goto(GameState.FlowState.DIVORCE, next_payload)
+    GameState.goto(GameState.FlowState.DATING_APP, next_payload)

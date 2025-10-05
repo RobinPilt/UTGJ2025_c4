@@ -3,7 +3,7 @@ extends Node
 
 signal flow_changed(state_name: int, payload: Dictionary)
 
-enum FlowState { MAIN_MENU, DATING_APP, MINIGAME, WEDDING, RESULTS, GRAVEYARD}
+enum FlowState { MAIN_MENU, DATING_APP, MINIGAME, WEDDING, RESULTS, GRAVEYARD, DIVORCE}
 
 var state: int = FlowState.MAIN_MENU
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://boy6sxawl018d"]
+
+[ext_resource type="Script" uid="uid://d1f0f7u8ov1c4" path="res://scenes/ui/Divorce.gd" id="1_iloy3"]
+
+[node name="Divorce" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iloy3")
+
+[node name="NPCNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 436.0
+offset_right = 224.0
+offset_bottom = 475.0
+text = "Name"
+horizontal_alignment = 1
+
+[node name="NPCBlurbLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 498.0
+offset_right = 371.0
+offset_bottom = 578.0
+text = "Blurb goes here"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DivorceButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 36.0
+offset_right = 171.0
+offset_bottom = 99.0
+text = "Divorce"
+
+[node name="NPCSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 42.0
+offset_right = 1147.0
+offset_bottom = 649.0
+size_flags_vertical = 3
+expand_mode = 2
+stretch_mode = 5
