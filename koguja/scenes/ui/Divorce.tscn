@@ -7,6 +7,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_iloy3")
 
+[node name="Background" type="TextureRect" parent="."]
+z_index = -160
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.35, 0.35)
+
 [node name="NPCNameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 104.0
@@ -36,9 +43,9 @@ text = "Divorce"
 
 [node name="NPCSprite" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 546.0
 offset_top = 42.0
-offset_right = 1147.0
+offset_right = 1153.0
 offset_bottom = 649.0
 size_flags_vertical = 3
 expand_mode = 2

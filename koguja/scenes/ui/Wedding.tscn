@@ -11,6 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmarl")
 
+[node name="Background" type="TextureRect" parent="."]
+z_index = -160
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.35, 0.35)
+
 [node name="NPCNameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 104.0
@@ -40,9 +47,9 @@ text = "Marry"
 
 [node name="NPCSprite" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 546.0
 offset_top = 42.0
-offset_right = 1147.0
+offset_right = 1153.0
 offset_bottom = 649.0
 size_flags_vertical = 3
 expand_mode = 2

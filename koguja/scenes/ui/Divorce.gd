@@ -5,6 +5,7 @@ extends Control
 @onready var npc_name_label: Label = $NPCNameLabel
 @onready var npc_blurb_label: Label = $NPCBlurbLabel
 @onready var divorce_button: Button = $DivorceButton
+@onready var background: TextureRect = $Background
 
 var npc_data: Dictionary = {}
 var current_name: String = ""  # fallback name (will already include the wedding's change)
@@ -31,6 +32,17 @@ func _setup_ui() -> void:
 	text_index = 0
 	next_btn = get_node_or_null("NextButton") as Button
 
+	var bg_path: String = npc_data.get("wedding_art", "") as String
+	if bg_path != "":
+		var bg_tex: Texture2D = load(bg_path)
+		if bg_tex:
+			background.texture = bg_tex
+			print("Background loaded successfully.")
+		else:
+			print("Failed to load background texture from path:", bg_path)
+	else:
+		print("No background path provided.")
+
 	if next_btn:
 		next_btn.visible = true
 		divorce_button.visible = false
@@ -45,7 +57,7 @@ func _setup_ui() -> void:
 
 	_display_current_text("divorce_text")
 
-	npc_name_label.text = "You divorce: %s (%s)" % [display_name, family_name]
+	npc_name_label.text = "%s (%s)" % [display_name, family_name]
 
 	print("Trying to load sprite from path:", sprite_path)
 	if sprite_path != "":
