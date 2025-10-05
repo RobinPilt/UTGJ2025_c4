@@ -44,6 +44,7 @@ offset_bottom = 100.0
 text = "Divorce"
 
 [node name="NPCSprite" type="TextureRect" parent="."]
+z_index = -45
 layout_mode = 0
 offset_left = 546.0
 offset_top = 42.0
