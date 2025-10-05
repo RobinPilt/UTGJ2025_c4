@@ -10,7 +10,6 @@ extends Node2D
 @onready var sound1 = preload("res://assets/audio/metal_hit1.wav")
 @onready var sound2 = preload("res://assets/audio/alarm.wav")
 
-
 const DIFFICULTY_HEARTS = {
 	"easy": 10,
 	"normal": 15,

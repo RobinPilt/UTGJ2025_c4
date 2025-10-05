@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://fsdy1brkymoy"]
+[gd_scene load_steps=6 format=3 uid="uid://fsdy1brkymoy"]
 
 [ext_resource type="Script" uid="uid://cjflgda0ri4rr" path="res://scenes/ui/MainMenu.gd" id="1_vjtqc"]
 [ext_resource type="AudioStream" uid="uid://2gn4g8jxd6c5" path="res://assets/audio/ui_select.wav" id="2_6jbdy"]
-[ext_resource type="Script" uid="uid://s8bdcjihmwbm" path="res://scenes/ui/Settings.gd" id="2_iwbf0"]
+[ext_resource type="Script" path="res://scenes/ui/Settings.gd" id="2_iwbf0"]
+[ext_resource type="Script" uid="uid://cqo34w67aydge" path="res://scenes/ui/Tutorial.gd" id="3_xpiny"]
 [ext_resource type="Texture2D" uid="uid://dr05g3a0ag11d" path="res://assets/art/startpage.png" id="4_2ysvc"]
 
 [node name="MainMenu" type="Control"]
@@ -49,6 +50,12 @@ theme_override_constants/separation = 16
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Start"
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Tutorial"
+script = ExtResource("3_xpiny")
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

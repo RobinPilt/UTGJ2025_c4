@@ -4,6 +4,7 @@ extends Control
 @onready var start_btn: Button = $"CenterContainer/VBoxContainer/StartButton"
 @onready var quit_btn: Button = $"CenterContainer/VBoxContainer/QuitButton"
 @onready var settings_btn: Button = $"CenterContainer/VBoxContainer/SettingsButton"
+@onready var tutorial_btn: Button = $"CenterContainer/VBoxContainer/TutorialButton"
 @onready var sound = preload("res://assets/audio/ui_select.wav")
 
 func _on_button_pressed():
@@ -18,6 +19,7 @@ func _ready() -> void:
 	start_btn.pressed.connect(_on_start_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
 	settings_btn.pressed.connect(_on_button_pressed)
+	tutorial_btn.pressed.connect(_on_button_pressed)
 
 func _on_start_pressed() -> void:
 	GameState.goto(GameState.FlowState.DATING_APP)
