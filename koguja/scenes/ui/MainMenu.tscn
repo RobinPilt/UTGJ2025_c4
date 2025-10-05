@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjflgda0ri4rr" path="res://scenes/ui/MainMenu.gd" id="1_vjtqc"]
 [ext_resource type="AudioStream" uid="uid://2gn4g8jxd6c5" path="res://assets/audio/ui_select.wav" id="2_6jbdy"]
-[ext_resource type="Script" path="res://scenes/ui/Settings.gd" id="2_iwbf0"]
-[ext_resource type="Script" uid="uid://cqo34w67aydge" path="res://scenes/ui/Tutorial.gd" id="3_xpiny"]
+[ext_resource type="Script" uid="uid://s8bdcjihmwbm" path="res://scenes/ui/Settings.gd" id="2_iwbf0"]
+[ext_resource type="Script" path="res://scenes/ui/Tutorial.gd" id="3_xpiny"]
 [ext_resource type="Texture2D" uid="uid://dr05g3a0ag11d" path="res://assets/art/startpage.png" id="4_2ysvc"]
 
 [node name="MainMenu" type="Control"]
