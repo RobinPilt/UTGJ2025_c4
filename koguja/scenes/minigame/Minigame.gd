@@ -7,6 +7,8 @@ extends Node2D
 @onready var health_label: Label = $"HUD/UIFrame/LeftPanel/HealthLabel"
 @onready var timer_bar: ProgressBar = $"HUD/UIFrame/RightPanel/VBoxContainer/TimerBar"
 @onready var spawner: Node = $Spawner
+@onready var sound1 = preload("res://assets/audio/metal_hit1.wav")
+@onready var sound2 = preload("res://assets/audio/alarm.wav")
 
 const DIFFICULTY_HEARTS = {
 	"easy": 10,
@@ -72,7 +74,13 @@ func on_heart_collected(value: int = 1) -> void:
 
 func on_player_hit() -> void:
 	health -= 1
+	$AudioStreamPlayer.stream = sound1
+	$AudioStreamPlayer.play()
 	update_health_ui()
+
+	if health == 1:
+		$AudioStreamPlayer2.stream = sound2
+		$AudioStreamPlayer2.play()
 
 	if health <= 0:
 		_go_graveyard()
