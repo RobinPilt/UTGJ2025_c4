@@ -12,6 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yc0ul")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -210
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("2_tusji")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -44,10 +52,3 @@ text = "Back"
 layout_mode = 2
 placeholder_text = "Name"
 max_length = 30
-
-[node name="Paneel" type="Sprite2D" parent="."]
-modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
-z_index = -1025
-position = Vector2(576, 328)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_tusji")
