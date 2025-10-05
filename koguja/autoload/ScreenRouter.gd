@@ -13,16 +13,22 @@ func show_state(state_name: int, payload: Dictionary = {}) -> void:
 		push_warning("ScreenRouter: screen_root not set; call setup() first.")
 		return
 
-	# Clear old screen
-	for c in screen_root.get_children():
-		c.queue_free()
-
-	# Load target scene or show a placeholder
+	# Prepare new instance but don't swap yet
 	var scene := _scene_for(state_name)
 	var inst: Node = scene.instantiate() if scene else _make_placeholder(state_name)
-	screen_root.add_child(inst)
 
-	# Pass payload to new screen, if it supports bootstrap()
+	# If a transition exists and supports 'play', use it; otherwise swap immediately
+	if is_instance_valid(transition) and transition.has_method("play"):
+		# transition.play expects a Callable that will be invoked at midpoint
+		transition.call("play", Callable(self, "_do_swap").bind(inst, payload))
+	else:
+		_do_swap(inst, payload)
+
+# Helper to perform the actual swap (called at mid-transition)
+func _do_swap(inst: Node, payload: Dictionary) -> void:
+	for c in screen_root.get_children():
+		c.queue_free()
+	screen_root.add_child(inst)
 	if inst.has_method("bootstrap"):
 		inst.call("bootstrap", payload)
 

@@ -21,102 +21,102 @@ extends Control
 var mock_npcs: Array[Dictionary] = [
 	{
 		"display_name": "Foxa",
-		"family_name": "Foxa",
+		"family_name": "Fox",
 		"difficulty_id": "easy",
 		"blurb": "Sassy lil bitch, he's your type of man, mating is must, he chill.",
 		"sprite_path": "res://assets/art/char/foxa.png",
 		"sprite_path2": "res://assets/art/char/foxablush.png",
 		"wedding_art": "res://assets/art/D8316F01-AAA9-44E4-85E3-2E0F52B91CCF.png",
-		"wedding_text": ["", ""],
-		"divorce_text": ["", ""]
+		"wedding_text": ["Human. Not so fast.. we can take our time. Hand in hand.", "We can take our time. hand in hand."],
+		"divorce_text": ["Well i guess we are not meant to be.", "Boy."]
 	},
 	{
-		"display_name": "Lucy",
-		"family_name": "Lucy",
+		"display_name": "Lucius",
+		"family_name": "Friedemann",
 		"difficulty_id": "normal",
 		"blurb": "Calm, and a dick, leader kinda shit.",
 		"sprite_path": "res://assets/art/char/lucy.png",
 		"sprite_path2": "res://assets/art/char/lucyblush.png",
 		"wedding_art": "res://assets/art/3F470535-3182-45EE-A5A8-2C2AC87E3284.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["This bright day should be fine for us, right?", "This glorious day should be celebrated."],
+		"divorce_text": ["I assume I wasn't holy enough for a mere human.", "..."]
 	},
 	{
-		"display_name": "Saask",
-		"family_name": "Saask",
+		"display_name": "Su-Jin",
+		"family_name": "O",
 		"difficulty_id": "hard",
-		"blurb": "A bad bitch, liar, will take your money, snu snu, rip pelvis.",
+		"blurb": "A bad type, liar, will take your money, snu snu, rip pelvis.",
 		"sprite_path": "res://assets/art/char/saask.png",
 		"sprite_path2": "res://assets/art/char/saaskblush.png",
 		"wedding_art": "res://assets/art/D8316F01-AAA9-44E4-85E3-2E0F52B91CCF.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["You are lucky that i like cute boys like yourself,", "you smell so sweet, just my type. *gets on one knee*"],
+		"divorce_text": ["*sucks you dry*", "Thank you for the blood"]
 	},
 	{
 		"display_name": "Aquarius",
-		"family_name": "Aquarius",
+		"family_name": "Zodiac",
 		"difficulty_id": "normal",
 		"blurb": "Rock hard, stoned, water? this thing is also chill.",
 		"sprite_path": "res://assets/art/char/aquarius.png",
 		"sprite_path2": "res://assets/art/char/aquariusblush.png",
-		"wedding_art": "res://assets/art/9024F3A8-74F1-4787-A083-766A9CAC266B.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_art": "res://assets/art/BF9C6B80-118A-480B-861C-F452E28602D8.png",
+		"wedding_text": ["For some who controls the flows, ...", "this one is somewhat agreeable."],
+		"divorce_text": ["Looks like this river didn't flow far enough.", "You should be ashamed."]
 	},
 	{
-		"display_name": "Dragon",
-		"family_name": "Dragon",
+		"display_name": "Dragonika",
+		"family_name": "Miki",
 		"difficulty_id": "hard",
 		"blurb": "Furry",
 		"sprite_path": "res://assets/art/char/dragon.png",
 		"sprite_path2": "res://assets/art/char/dragonblush.png",
-		"wedding_art": "res://assets/art/3F470535-3182-45EE-A5A8-2C2AC87E3284.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_art": "res://assets/art/BF9C6B80-118A-480B-861C-F452E28602D8.png",
+		"wedding_text": ["You? mortal?", "I guess I can take up your offer."],
+		"divorce_text": ["Divorce? FOR WHAT? you, mere human.", "*goes to cry*"]
 	},
 	{
 		"display_name": "Rin",
-		"family_name": "Rin",
+		"family_name": "Kobayashigawa",
 		"difficulty_id": "normal",
 		"blurb": "Sadistik as fak woman",
 		"sprite_path": "res://assets/art/char/rin.png",
 		"sprite_path2": "res://assets/art/char/rinblush.png",
 		"wedding_art": "res://assets/art/3F470535-3182-45EE-A5A8-2C2AC87E3284.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["Marriage?", "Someone like you, might be fun for a while."],
+		"divorce_text": ["I guess there was no hope to begin with.", "*you lose, you become the pet*"]
 	},
 	{
 		"display_name": "Serena",
-		"family_name": "Serena",
+		"family_name": "Gilbert",
 		"difficulty_id": "easy",
 		"blurb": "Wild woman, chemistry stuff, sadistic?",
 		"sprite_path": "res://assets/art/char/serena.png",
 		"sprite_path2": "res://assets/art/char/serenablush.png",
 		"wedding_art": "res://assets/art/9024F3A8-74F1-4787-A083-766A9CAC266B.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["Some one as cute as you, sure.", "For one that will be with me until the end."],
+		"divorce_text": ["You....mere mortal. You should be thankful, I guess not.", "I knew you wouldn't be a good material for my research."]
 	},
 	{
 		"display_name": "Valentin",
-		"family_name": "Valentin",
+		"family_name": "Devilika",
 		"difficulty_id": "hard",
 		"blurb": "Gaslighter, manupulator, cherubim",
 		"sprite_path": "res://assets/art/char/valentin.png",
 		"sprite_path2": "res://assets/art/char/valentin.png",
 		"wedding_art": "res://assets/art/D8316F01-AAA9-44E4-85E3-2E0F52B91CCF.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["Marry? too bad...", "*grabs your arm* The thee agrees."],
+		"divorce_text": [".........,", "*blast to oblivious* You dead."]
 	},
 	{
 		"display_name": "Victor",
-		"family_name": "Victor",
+		"family_name": "Herman",
 		"difficulty_id": "normal",
 		"blurb": "Alcoholic, chill dude, fight? Yes. gambler",
 		"sprite_path": "res://assets/art/char/victor.png",
 		"sprite_path2": "res://assets/art/char/victorblush.png",
 		"wedding_art": "res://assets/art/9024F3A8-74F1-4787-A083-766A9CAC266B.png",
-		"wedding_text": ["Sample wedding text.", "Sample"],
-		"divorce_text": ["Sample divorce text.", "Sample"]
+		"wedding_text": ["We should go for rounds of drinks.", "On you okay?"],
+		"divorce_text": ["Divorce?", "That was uncalled for yo. I wanted to get you more."]
 	}
 ]
 
