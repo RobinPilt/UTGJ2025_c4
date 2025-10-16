@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnmrgnw155nln"]
+
+[ext_resource type="Script" uid="uid://qaod1a5vyre2" path="res://scenes/minigame/Minigame.gd" id="1_n02jb"]
+[ext_resource type="PackedScene" uid="uid://mm8b0ux5eo3u" path="res://scenes/minigame/PlayerShip.tscn" id="1_wqfxt"]
+[ext_resource type="PackedScene" uid="uid://bcv78na2ht52b" path="res://scenes/minigame/Spawner.tscn" id="2_n02jb"]
+[ext_resource type="Script" uid="uid://cogldlga1iqr1" path="res://scenes/minigame/DarkPanel.gd" id="4_7jhkd"]
+[ext_resource type="Script" uid="uid://bokcveqey3vb7" path="res://scenes/minigame/PlayfieldBorder.gd" id="4_i1pj7"]
+[ext_resource type="Texture2D" uid="uid://letclqq8qy70" path="res://assets/art/spacebgudune.png" id="7_qi8lj"]
+[ext_resource type="Script" uid="uid://mmc5f0wmxf3o" path="res://scenes/minigame/SpaceBackground.gd" id="8_8rw0h"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_7jhkd"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_45eo4"]
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource("1_n02jb")
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_wqfxt")]
+
+[node name="Spawner" parent="." instance=ExtResource("2_n02jb")]
+playfield_control = NodePath("../HUD/UIFrame/PlayfieldOverlay")
+
+[node name="Countdown" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UIFrame" type="HBoxContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="LeftPanel" type="PanelContainer" parent="HUD/UIFrame"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_7jhkd")
+
+[node name="HealthLabel" type="Label" parent="HUD/UIFrame/LeftPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = "Health: 3"
+
+[node name="PlayfieldOverlay" type="Panel" parent="HUD/UIFrame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+script = ExtResource("4_i1pj7")
+
+[node name="RightPanel" type="PanelContainer" parent="HUD/UIFrame"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_7jhkd")
+
+[node name="HeartsLabel" type="Label" parent="HUD/UIFrame/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = "Hearts:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/UIFrame/RightPanel"]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="HUD/UIFrame/RightPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Vitality left:"
+
+[node name="TimerBar" type="ProgressBar" parent="HUD/UIFrame/RightPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_7jhkd")
+volume_db = -7.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_45eo4")
+
+[node name="SpaceBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("8_8rw0h")
+texture = ExtResource("7_qi8lj")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="SpaceBackground"]
+
+[node name="A" type="Sprite2D" parent="SpaceBackground/ParallaxLayer"]
+position = Vector2(584.00006, 312.00003)
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("7_qi8lj")

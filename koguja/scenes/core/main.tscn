@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwt050vs6d3rv"]
+
+[ext_resource type="Script" uid="uid://dpwl86x1qyn71" path="res://scenes/core/Main.gd" id="1_fgbdc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_fgbdc")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="ScreenRoot" type="Node2D" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcv78na2ht52b"]
+
+[ext_resource type="Script" uid="uid://bbr0y8fgualmo" path="res://scenes/minigame/Spawner.gd" id="1_uaaj5"]
+[ext_resource type="PackedScene" uid="uid://jpyv6cpj46ca" path="res://scenes/minigame/Heart.tscn" id="2_31qbx"]
+[ext_resource type="PackedScene" uid="uid://bm5g5l67501vm" path="res://scenes/minigame/Obstacle.tscn" id="3_qca2f"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_uaaj5")
+heart_scene = ExtResource("2_31qbx")
+obstacle_scene = ExtResource("3_qca2f")
+
+[node name="HeartTimer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 1.0999999999999999

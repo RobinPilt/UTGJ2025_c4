@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrf68kyfmdrh"]
+
+[ext_resource type="AudioStream" uid="uid://cr656l8sdswd0" path="res://assets/audio/wedding-theme-maybe.wav" id="1_uh13g"]
+[ext_resource type="Script" uid="uid://dhpxlmsg6tqqa" path="res://autoload/audio_stream_player.gd" id="2_uh13g"]
+
+[node name="PlayerA" type="AudioStreamPlayer"]
+stream = ExtResource("1_uh13g")
+autoplay = true
+script = ExtResource("2_uh13g")
+
+[node name="PlayerB" type="AudioStreamPlayer" parent="."]
